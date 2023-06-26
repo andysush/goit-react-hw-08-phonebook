@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Label, Input } from './SearchForm.styled';
-import { filter } from 'redux/filterSlice';
+import { filter } from 'redux/filter/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();

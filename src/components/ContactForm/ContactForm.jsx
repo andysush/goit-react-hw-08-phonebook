@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { FormBox, Label, Input, AddBtn } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { selectContact } from 'redux/selectors';
-import { addContactThunk } from 'redux/thunks';
+import { selectContact } from 'redux/contacts/selectors';
+import { addContactThunk } from 'redux/contacts/thunks';
 
 export default function Form() {
   const [name, setName] = useState('');

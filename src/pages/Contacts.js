@@ -4,8 +4,12 @@ import { ContactList } from '../components/ContactList/ContactList';
 import { Filter } from '../components/SearchForm/SearchForm';
 import { Container, Text } from './Contacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContact, selectError, selectIsLoading } from 'redux/selectors';
-import { getContactsThunk } from 'redux/thunks';
+import {
+  selectContact,
+  selectError,
+  selectIsLoading,
+} from 'redux/contacts/selectors';
+import { getContactsThunk } from 'redux/contacts/thunks';
 import { useEffect } from 'react';
 
 export default function ContactsPage() {
