@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 50px 50px;
+  height: 100%;
 `;
 
 export const Text = styled.span`
