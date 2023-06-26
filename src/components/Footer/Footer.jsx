@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import mail from '../../images/mail.png';
 
 import { Footer, FooterText, LogoThumb } from './Footer.styled';
 
