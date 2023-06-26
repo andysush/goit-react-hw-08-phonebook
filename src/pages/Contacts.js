@@ -2,7 +2,7 @@ import { Section } from 'components/Section/Section';
 import Form from '../components/ContactForm/ContactForm';
 import { ContactList } from '../components/ContactList/ContactList';
 import { Filter } from '../components/SearchForm/SearchForm';
-import { Container, Text } from './Contacts.styled';
+import { Container, Text } from './Pages.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContact,
@@ -11,6 +11,7 @@ import {
 } from 'redux/contacts/selectors';
 import { getContactsThunk } from 'redux/contacts/thunks';
 import { useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContact);
@@ -36,7 +37,7 @@ export default function ContactsPage() {
             <ContactList />
           </>
         )}
-        {error && <Text>Network Error... Please, try again later...</Text>}
+        {error && toast.warning('Network Error... Please, try again later...')}
         {isLoading && <Text>Loading...</Text>}
       </Section>
     </Container>

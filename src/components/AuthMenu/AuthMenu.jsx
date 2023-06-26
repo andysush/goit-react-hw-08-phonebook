@@ -1,14 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { AuthMenuItem, AuthMenuList } from './AuthMenu.styled';
 
 export const AuthMenu = () => {
   return (
-    <ul>
+    <AuthMenuList>
       <li>
-        <NavLink to="/register">Sign Up</NavLink>
+        <AuthMenuItem to="/register">Sign Up</AuthMenuItem>
       </li>
       <li>
-        <NavLink to="/login">Log In</NavLink>
+        <AuthMenuItem to="/login">Log In</AuthMenuItem>
       </li>
-    </ul>
+    </AuthMenuList>
   );
 };

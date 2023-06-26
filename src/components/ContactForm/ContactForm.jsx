@@ -1,9 +1,17 @@
 import { useState } from 'react';
-import { FormBox, Label, Input, AddBtn } from './ContactForm.styled';
+import {
+  AddBtn,
+  ContactForm,
+  ContactWrapper,
+  ContactText,
+  ContactInput,
+  ContactLabel,
+} from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { selectContact } from 'redux/contacts/selectors';
 import { addContactThunk } from 'redux/contacts/thunks';
+import { toast } from 'react-hot-toast';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -50,6 +58,7 @@ export default function Form() {
     };
 
     dispatch(addContactThunk(contact));
+    toast.success('Adding User is Successfuly)');
     resetForm();
   };
 
@@ -59,32 +68,38 @@ export default function Form() {
   };
 
   return (
-    <FormBox onSubmit={handleSubmit}>
-      <Label>
-        Name
-        <Input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </Label>
-      <Label>
-        Phone
-        <Input
-          type="tel"
-          name="number"
-          value={number}
-          onChange={handleChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
+    <ContactForm onSubmit={handleSubmit}>
+      <ContactWrapper>
+        <ContactLabel>
+          <ContactText>Name</ContactText>
+          <ContactInput
+            placeholder="Jonny First"
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </ContactLabel>
+      </ContactWrapper>
+      <ContactWrapper>
+        <ContactLabel>
+          <ContactText>Phone</ContactText>
+          <ContactInput
+            placeholder="12345678"
+            type="tel"
+            name="number"
+            value={number}
+            onChange={handleChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </ContactLabel>
+      </ContactWrapper>
       <AddBtn type="submit">Add Contact</AddBtn>
-    </FormBox>
+    </ContactForm>
   );
 }

@@ -4,6 +4,10 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(233, 211, 137);
+  border: 2px solid rgb(84, 84, 253);
+  border-radius: 5px;
+  padding: 10px;
   gap: 15px;
 `;
 

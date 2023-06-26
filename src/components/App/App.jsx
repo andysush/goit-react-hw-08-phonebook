@@ -3,6 +3,7 @@ import { RestrictedRoute } from 'components/RestrictedRoute';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { useAuth } from 'hooks/useAuth';
 import { lazy, useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/thunks';
@@ -21,30 +22,33 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <p>Refreshing user...</p>
   ) : (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="login"
-          element={
-            <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
-          }
-        />
-        <Route
-          path="register"
-          element={
-            <RestrictedRoute component={RegistrationPage} redirectTo="/" />
-          }
-        />
-        <Route
-          path="contacts"
-          element={
-            <PrivateRoute component={ContactsPage} redirectTo="/login" />
-          }
-        />
-      </Route>
-    </Routes>
+    <>
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute component={RegistrationPage} redirectTo="/" />
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={ContactsPage} redirectTo="/login" />
+            }
+          />
+        </Route>
+      </Routes>
+    </>
   );
 }

@@ -1,21 +1,28 @@
 import { useAuth } from 'hooks/useAuth';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png';
+import { LogoThumb, NavContainer, NavItem, NavList } from './Navigation.styled';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <ul>
+    <NavContainer>
+      <LogoThumb>
+        <Link to="/">
+          <img src={logo} width={20} alt="logo" />
+        </Link>
+      </LogoThumb>
+      <NavList>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavItem to="/">Home</NavItem>
         </li>
         {isLoggedIn && (
           <li>
-            <NavLink to="/contacts">Contacts</NavLink>
+            <NavItem to="/contacts">Contacts</NavItem>
           </li>
         )}
-      </ul>
-    </nav>
+      </NavList>
+    </NavContainer>
   );
 };

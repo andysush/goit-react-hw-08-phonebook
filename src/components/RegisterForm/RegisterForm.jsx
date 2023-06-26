@@ -1,5 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { registerUser } from 'redux/auth/thunks';
+import {
+  RegButton,
+  RegForm,
+  RegInput,
+  RegLabel,
+  RegText,
+  RegWrapper,
+} from './RegisterForm.styled';
+import { toast } from 'react-hot-toast';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -13,24 +22,35 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
+    toast.success('Sign Up is Successfuly)');
     form.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+    <>
+      <RegForm onSubmit={handleSubmit}>
+        <RegWrapper>
+          <RegLabel>
+            <RegText>Username</RegText>
+            <RegInput type="text" name="name" placeholder="Jonny First" />
+          </RegLabel>
+        </RegWrapper>
+        <RegWrapper>
+          <RegLabel>
+            <RegText>Email</RegText>
+            <RegInput
+              type="email"
+              name="email"
+              placeholder="JonnyFirst@yourmail.com"
+            />
+          </RegLabel>
+        </RegWrapper>
+        <RegLabel>
+          <RegText>Password</RegText>
+          <RegInput type="password" name="password" placeholder="password" />
+        </RegLabel>
+        <RegButton type="submit">Sign Up</RegButton>
+      </RegForm>
+    </>
   );
 };

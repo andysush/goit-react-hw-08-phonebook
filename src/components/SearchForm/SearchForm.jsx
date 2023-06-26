@@ -1,5 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { Label, Input } from './SearchForm.styled';
+import {
+  SearchLabel,
+  SearchForm,
+  SearchWrapper,
+  SearchText,
+  SearchInput,
+} from './SearchForm.styled';
 import { filter } from 'redux/filter/filterSlice';
 
 export const Filter = () => {
@@ -8,13 +14,17 @@ export const Filter = () => {
     dispatch(filter(ev.currentTarget.value));
   };
   return (
-    <Label>
-      Find
-      <Input
-        type="text"
-        placeholder="Find contacts..."
-        onChange={handleFilter}
-      />
-    </Label>
+    <SearchForm>
+      <SearchWrapper>
+        <SearchLabel>
+          <SearchText>Find</SearchText>
+          <SearchInput
+            type="text"
+            placeholder="Find contacts..."
+            onChange={handleFilter}
+          />
+        </SearchLabel>
+      </SearchWrapper>
+    </SearchForm>
   );
 };

@@ -1,32 +1,32 @@
 import styled from '@emotion/styled';
 
-export const ContactForm = styled.form`
+export const RegForm = styled.form`
   display: flex;
   flex-direction: column;
   border: 5px solid rgb(84, 84, 253);
   border-radius: 5px;
   padding: 20px 40px;
   background-color: rgb(233, 211, 137);
-  margin-bottom: 30px;
 `;
 
-export const ContactWrapper = styled.div`
+export const RegWrapper = styled.div`
   display: flex;
   justify-content: space-around;
 `;
 
-export const ContactLabel = styled.label`
+export const RegLabel = styled.label`
   font-size: 16px;
+  /* margin-right: 15px; */
 `;
 
-export const ContactText = styled.p`
+export const RegText = styled.p`
   text-transform: uppercase;
   font-size: 13px;
   text-align: center;
   margin-bottom: 10px;
 `;
 
-export const ContactInput = styled.input`
+export const RegInput = styled.input`
   font-size: 13px;
   margin-bottom: 10px;
   border-color: rgb(233, 184, 25);
@@ -37,7 +37,7 @@ export const ContactInput = styled.input`
   }
 `;
 
-export const AddBtn = styled.button`
+export const RegButton = styled.button`
   background-color: rgb(84, 84, 253);
   color: #fff;
   outline: none;

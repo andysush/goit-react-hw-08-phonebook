@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 export const getContactsThunk = createAsyncThunk(
   'contacts/fetchAll',
@@ -8,7 +9,9 @@ export const getContactsThunk = createAsyncThunk(
       const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        toast.error('Network Error... Please, try again later...')
+      );
     }
   }
 );
@@ -22,7 +25,9 @@ export const addContactThunk = createAsyncThunk(
       });
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        toast.error('Network Error... Please, try again later...')
+      );
     }
   }
 );
@@ -34,7 +39,9 @@ export const deleteContactThunk = createAsyncThunk(
       const { data } = await axios.delete(`/contacts/${id}`);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        toast.error('Network Error... Please, try again later...')
+      );
     }
   }
 );
