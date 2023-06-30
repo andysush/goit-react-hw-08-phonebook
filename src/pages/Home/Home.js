@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container } from './Pages.styled';
+import { Container } from '../Home/Home.styled';
 import { Section } from 'components/Section/Section';
-import img from '../images/book.png';
+import img from '../../images/book.png';
 
 function HomePage() {
   return (

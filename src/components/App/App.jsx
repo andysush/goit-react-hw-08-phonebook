@@ -8,10 +8,12 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/thunks';
 
-const HomePage = lazy(() => import('../../pages/Home'));
-const LoginPage = lazy(() => import('../../pages/Login'));
-const RegistrationPage = lazy(() => import('../../pages/Registration'));
-const ContactsPage = lazy(() => import('../../pages/Contacts'));
+const HomePage = lazy(() => import('../../pages/Home/Home'));
+const LoginPage = lazy(() => import('../../pages/Login/Login'));
+const RegistrationPage = lazy(() =>
+  import('../../pages/Registration/Registration')
+);
+const ContactsPage = lazy(() => import('../../pages/Contacts/Contacts'));
 
 export default function App() {
   const dispatch = useDispatch();

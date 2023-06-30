@@ -1,8 +1,8 @@
 import { Section } from 'components/Section/Section';
-import Form from '../components/ContactForm/ContactForm';
-import { ContactList } from '../components/ContactList/ContactList';
-import { Filter } from '../components/SearchForm/SearchForm';
-import { Container, Text } from './Pages.styled';
+import Form from '../../components/ContactForm/ContactForm';
+import { ContactList } from '../../components/ContactList/ContactList';
+import { Filter } from '../../components/SearchForm/SearchForm';
+import { Container, Text } from './Contacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContact,
